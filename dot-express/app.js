@@ -10,6 +10,11 @@ app.get('/users/:name?',function(req, res){
     }
 });
 
+//parameterに正規表現をかける
+app.get('/items/:id([0-9]+)', function(req,res){
+    res.send('itme no: ' + req.params.id);
+});
+
 /*
 app.get('/',function(req,res){
     res.send('hello world');
