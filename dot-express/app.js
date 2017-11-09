@@ -1,8 +1,10 @@
 var express = require('express'),
     app = express();
-    //静的なファイルのアクセスはここで処理をする
+
+    // Middleware: sequentialにMiddlewareの処理が実行される
     app.use(express.static(__dirname + '/public'));
-app.get('/hello.txt', function(req, res){
+
+    app.get('/hello.txt', function(req, res){
     res.sendfile(__dirname + '/public/hello.txt');
 });
 
