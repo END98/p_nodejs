@@ -1,9 +1,13 @@
 var express = require('express'),
     app = express();
 
-// プレースホルダー URL以下に:nameをするとFunction以下でその変数が使用可能
-app.get('/users/:name',function(req, res){
-    res.send('hello, ' + req.params.name);
+// オプショナル
+app.get('/users/:name?',function(req, res){
+    if(req.params.name){
+        res.send('hello,' + req.params.name);
+    } else {
+        res.send('hello nobady!');
+    }
 });
 
 /*
