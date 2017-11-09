@@ -1,8 +1,12 @@
 var express = require('express'),
     app = express();
+    
+    //Edit log
+    var logger = require('morgan');
+    app.use(logger('dev'));
 
-    // Middleware: sequentialにMiddlewareの処理が実行される
-    app.use(express.static(__dirname + '/ublic'));
+    // Middleware: sequentialにMddlewareの処理が実行される
+    app.use(express.static(__dirname + '/public'));
 
     // custom Middleware
     app.use(function(req,res,next){
