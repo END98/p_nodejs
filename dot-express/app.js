@@ -3,6 +3,7 @@ var express = require('express'),
     
     //Edit log
     var logger = require('morgan');
+
     app.use(logger('dev'));
 
     // Middleware: sequentialにMddlewareの処理が実行される
@@ -10,7 +11,7 @@ var express = require('express'),
 
     // custom Middleware
     app.use(function(req,res,next){
-        console.log('my custom middleware');
+        console.log('my custom middleware !');
         next();
     });
 
