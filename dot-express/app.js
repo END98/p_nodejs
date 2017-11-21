@@ -4,19 +4,15 @@ var express = require('express'),
     //Edit log
     var logger = require('morgan');
 
-    app.use(logger('dev'));
+    //templete file 'EJS'
+    app.set('views', __dirname + '/views');
+    app.set('view engine', 'ejs');
 
-    // Middleware: sequentialにMddlewareの処理が実行される
+    app.use(logger('dev'));
     app.use(express.static(__dirname + '/public'));
 
-    // custom Middleware
-    app.use(function(req,res,next){
-        console.log('my custom middleware !');
-        next();
-    });
-
-    app.get('/hello.txt', function(req, res){
-        res.sendfile(__dirname + '/public/hello.txt');
+    app.get('/', function(req, res){
+        res.render('index', {title: 'title'});
     });
 
 // 3,000のportで受け付ける
